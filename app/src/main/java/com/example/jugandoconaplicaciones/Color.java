@@ -9,38 +9,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class saludoActivity extends AppCompatActivity {
-
-
-    public static final String NUM = "10";
-    TextView saludo;
-    Button btnVolver;
+public class Color extends AppCompatActivity {
+    public static final String NUM = "12";
     EditText editText;
+    TextView textView;
+    Button btnVolver2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saludo);
-        saludo = findViewById(R.id.texto1);
-        btnVolver = findViewById(R.id.buttonVolver);
-        editText = findViewById(R.id.editTextNumber);
+        setContentView(R.layout.activity_color);
 
-        Intent intent = getIntent();
-        String nombre = intent.getStringExtra(MainActivity.NOMBRE);
-        saludo.setText("Hola " + nombre);
+        textView = findViewById(R.id.textView2);
+        editText = findViewById(R.id.editTextNumber2);
+        btnVolver2 = findViewById(R.id.buttonVolver2);
 
-        btnVolver.setOnClickListener(new View.OnClickListener() {
+        Intent intent2 = getIntent();
+
+        String nombre = intent2.getStringExtra(MainActivity.NOMBRE);
+        textView.setText("Hola " + nombre);
+
+        btnVolver2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String num = editText.getText().toString();
 
                 Intent intento = new Intent();
-                intento.putExtra(NUM, num);
+                intento.putExtra(NUM,num);
                 setResult(RESULT_OK,intento);
                 finish();
+
             }
         });
-
 
     }
 }
